@@ -1,0 +1,6 @@
+{
+  "name": "StockSync Business OS",
+  "description": "Real-time inventory and customer order management system with automated reordering triggers, AI sales analytics, and exportable reporting tools.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

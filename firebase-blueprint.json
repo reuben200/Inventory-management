@@ -1,0 +1,97 @@
+{
+  "collections": [
+    {
+      "name": "products",
+      "description": "Inventory products and stock levels",
+      "fields": [
+        { "name": "sku", "type": "string", "description": "Unique SKU code" },
+        { "name": "name", "type": "string", "description": "Product name" },
+        { "name": "category", "type": "string", "description": "Product category" },
+        { "name": "stockQuantity", "type": "number", "description": "Current on-hand stock" },
+        { "name": "reservedQuantity", "type": "number", "description": "Reserved stock for pending orders" },
+        { "name": "reorderPoint", "type": "number", "description": "Reorder point threshold" },
+        { "name": "reorderQuantity", "type": "number", "description": "Automatic reorder batch size" },
+        { "name": "costPrice", "type": "number", "description": "Supplier unit cost price" },
+        { "name": "sellingPrice", "type": "number", "description": "Customer unit selling price" },
+        { "name": "supplierName", "type": "string", "description": "Supplier name" },
+        { "name": "supplierEmail", "type": "string", "description": "Supplier contact email" },
+        { "name": "leadTimeDays", "type": "number", "description": "Supplier delivery lead time in days" },
+        { "name": "location", "type": "string", "description": "Warehouse rack location" },
+        { "name": "status", "type": "string", "description": "Stock status badge" },
+        { "name": "lastRestocked", "type": "string", "description": "Date of last restock" },
+        { "name": "autoReorderEnabled", "type": "boolean", "description": "Product auto-reorder toggle" }
+      ]
+    },
+    {
+      "name": "orders",
+      "description": "Customer sales orders",
+      "fields": [
+        { "name": "orderNumber", "type": "string", "description": "Order reference number" },
+        { "name": "customerName", "type": "string", "description": "Customer name" },
+        { "name": "customerEmail", "type": "string", "description": "Customer email" },
+        { "name": "totalAmount", "type": "number", "description": "Subtotal amount" },
+        { "name": "tax", "type": "number", "description": "Tax amount" },
+        { "name": "shipping", "type": "number", "description": "Shipping fee" },
+        { "name": "grandTotal", "type": "number", "description": "Total order amount" },
+        { "name": "status", "type": "string", "description": "Order status" },
+        { "name": "paymentStatus", "type": "string", "description": "Payment status" },
+        { "name": "createdAt", "type": "string", "description": "Order creation ISO timestamp" },
+        { "name": "shippingAddress", "type": "string", "description": "Shipping delivery address" }
+      ]
+    },
+    {
+      "name": "purchaseOrders",
+      "description": "Supplier replenishment purchase orders",
+      "fields": [
+        { "name": "poNumber", "type": "string", "description": "Purchase order reference" },
+        { "name": "productId", "type": "string", "description": "Target product ID" },
+        { "name": "productName", "type": "string", "description": "Target product name" },
+        { "name": "sku", "type": "string", "description": "Target product SKU" },
+        { "name": "supplierName", "type": "string", "description": "Supplier name" },
+        { "name": "supplierEmail", "type": "string", "description": "Supplier email" },
+        { "name": "quantity", "type": "number", "description": "Order quantity" },
+        { "name": "unitCost", "type": "number", "description": "Unit cost price" },
+        { "name": "totalCost", "type": "number", "description": "Total PO cost" },
+        { "name": "triggeredBy", "type": "string", "description": "Trigger source type" },
+        { "name": "status", "type": "string", "description": "PO status" },
+        { "name": "createdAt", "type": "string", "description": "PO creation ISO timestamp" },
+        { "name": "expectedDeliveryDate", "type": "string", "description": "Expected delivery date" }
+      ]
+    },
+    {
+      "name": "movementLogs",
+      "description": "Audit trail logs of inventory stock movements",
+      "fields": [
+        { "name": "productId", "type": "string", "description": "Product ID" },
+        { "name": "productName", "type": "string", "description": "Product name" },
+        { "name": "type", "type": "string", "description": "Movement event type" },
+        { "name": "quantityDelta", "type": "number", "description": "Stock delta amount" },
+        { "name": "previousQuantity", "type": "number", "description": "Previous stock quantity" },
+        { "name": "newQuantity", "type": "number", "description": "New stock quantity" },
+        { "name": "reference", "type": "string", "description": "Event reference" },
+        { "name": "timestamp", "type": "string", "description": "ISO timestamp" }
+      ]
+    },
+    {
+      "name": "triggerLogs",
+      "description": "Automated reorder engine trigger logs",
+      "fields": [
+        { "name": "productId", "type": "string", "description": "Product ID" },
+        { "name": "productName", "type": "string", "description": "Product name" },
+        { "name": "sku", "type": "string", "description": "Product SKU" },
+        { "name": "triggerStockLevel", "type": "number", "description": "Stock level when triggered" },
+        { "name": "thresholdPoint", "type": "number", "description": "Threshold reorder point" },
+        { "name": "poNumber", "type": "string", "description": "Generated PO number" },
+        { "name": "quantityOrdered", "type": "number", "description": "Quantity ordered" },
+        { "name": "timestamp", "type": "string", "description": "ISO timestamp" }
+      ]
+    },
+    {
+      "name": "settings",
+      "description": "Global operational settings",
+      "fields": [
+        { "name": "autoReorderGlobalEnabled", "type": "boolean", "description": "Global auto-reorder toggle" }
+      ]
+    }
+  ]
+}
